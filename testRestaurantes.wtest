@@ -1,0 +1,17 @@
+import restaurantes.*
+
+describe "Test de restaurantes"{
+	var giuli = new Deglutidor(tieneAuto = true, platosProbados = 0, categoria = principiante, tieneDineroSuficiente = true)
+	var ledbury = new Restaurante(calificacion = 20, chefFamoso = true, cuenta = 500, comenzales = 100)
+	var flamenco = new Bodegon(variedadSuficiente = true, comenzales = 200, cuenta = 600)
+	var europa = new Gira(estudiantes = [giuli], restaurantes = [ledbury], bodegones = [flamenco])
+	
+	test "giuli se suma a la gira de europa"{
+		assert.that(giuli.irDeGira(europa))
+	}
+	
+	test "giuli cambia de principiante a clasico"{
+		giuli.cambiarCategoria(clasico)
+		assert.equals(clasico,giuli.categoria())
+	}
+}
